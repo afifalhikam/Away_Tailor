@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Away Tailor Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+    /* Global & Base Styling */
+    body { 
+        font-family: 'Poppins', sans-serif; 
+        margin: 0; 
+        padding: 0; 
+        background: linear-gradient(120deg, #1a1a1a 60%, #d90429 100%); 
+        color: #fff; 
+        min-height: 100vh;
+        scroll-behavior: smooth; 
+    }
+    h1, h2, h3 { 
+        color: #d90429; 
+        letter-spacing: 1px; 
+        margin-bottom: 20px; 
+    }
+    p, ul, li {
+        line-height: 1.7; 
+    }
+
+    /* Header */
+    header {
+        background: rgba(30,30,30,0.7);
+        color: #fff;
+        padding: 60px 0 30px 0;
+        text-align: center;
+        box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+        backdrop-filter: blur(8px);
+        border-bottom: 2px solid #d90429;
+        border-radius: 0 0 32px 32px;
+        position: relative;
+    }
+    header h1 { margin: 0; font-size: 3.5em; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); } 
+    header p { margin-top: 10px; font-size: 1.3em; font-weight: 300; }
+
+    /* Navigasi */
+    nav { 
+        background: rgba(34,34,34,0.85); 
+        padding: 15px 0; 
+        text-align: center; 
+        border-bottom: 1px solid #d90429; 
+        box-shadow: 0 2px 8px rgba(217,4,41,0.08); 
+        position: sticky; 
+        top: 0; 
+        z-index: 10; 
+        /* Tambahan Flexbox untuk Navigasi */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav a {
+        color: #d90429;
+        margin: 0 10px; /* Jarak lebih kecil untuk menampung tombol login */
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s, background 0.3s, transform 0.2s; 
+        padding: 8px 12px; 
+        border-radius: 5px;
+    }
+    nav a:hover { 
+        color: #fff; 
+        background: #d90429; 
+        transform: translateY(-3px); 
+    }
+    /* Style untuk tombol Login/Logout */
+    #loginBtn {
+        padding: 8px 12px; 
+        font-size: 1em; 
+        margin-left: 25px; 
+        border-radius: 8px; 
+        font-weight: 700;
+        cursor: pointer;
+    }
+
+
+    /* Bagian Konten */
+    section {
+        padding: 50px 30px; 
+        max-width: 1100px; 
+        margin: 40px auto; 
+        background: rgba(34,34,34,0.7);
+        border-radius: 24px;
+        box-shadow: 0 8px 32px 0 rgba(217,4,41,0.15);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(217,4,41,0.2);
+        transition: box-shadow 0.3s;
+        animation: fadeInUp 0.8s;
+    }
+    section:hover {
+        box-shadow: 0 12px 40px 0 rgba(217,4,41,0.25); 
+    }
+
+    /* Gaya Khusus Profil Owner */
+    .owner-profile {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-top: 20px;
+        padding: 25px; 
+        background: #333;
+        border-radius: 12px; 
+        border: 1px solid #d90429;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    .owner-profile img {
+        width: 180px; 
+        height: 180px; 
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid #fff; 
+        flex-shrink: 0;
+        box-shadow: 0 0 15px rgba(217,4,41,0.5); 
+        transition: transform 0.3s ease-in-out;
+    }
+    .owner-profile img:hover {
+        transform: scale(1.05) rotate(2deg); 
+    }
+    .owner-details h3 {
+        margin-top: 0;
+        color: #fff;
+        font-size: 1.8em; 
+    }
+    .owner-details p {
+        margin: 8px 0; 
+        font-size: 1em; 
+    }
+
+    /* Layanan List Styling */
+    section#layanan ul {
+        list-style: none; 
+        padding: 0;
+    }
+    section#layanan li {
+        background: #333;
+        padding: 15px 20px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border-left: 5px solid #d90429;
+        transition: background 0.3s, transform 0.2s;
+        display: flex;
+        align-items: center;
+    }
+    section#layanan li:hover {
+        background: #444;
+        transform: translateX(5px);
+    }
+    section#layanan li::before {
+        content: '✓'; 
+        color: #d90429;
+        font-weight: bold;
+        margin-right: 10px;
+        font-size: 1.2em;
+    }
+
+    /* Tombol Aksi */
+    .cta-button {
+        display: inline-block;
+        background: linear-gradient(90deg, #d90429 60%, #ff2e63 100%);
+        color: #fff;
+        padding: 16px 35px; 
+        margin-top: 25px; 
+        text-decoration: none;
+        border-radius: 32px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(217,4,41,0.25); 
+        transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        font-size: 1.2em; 
+    }
+    .cta-button:hover {
+        background: linear-gradient(90deg, #ff2e63 60%, #d90429 100%);
+        transform: scale(1.08) translateY(-3px); 
+        box-shadow: 0 8px 25px rgba(217,4,41,0.4);
+    }
+
+    /* Galeri BARU (Carousel/Slider) */
+    .gallery-container {
+        position: relative;
+        padding: 0 40px; 
+    }
+    .gallery {
+        display: flex; 
+        overflow-x: scroll; 
+        scroll-snap-type: x mandatory; 
+        gap: 25px; 
+        margin-top: 30px;
+        padding-bottom: 25px;
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; 
+    }
+    /* Hapus scrollbar */
+    .gallery::-webkit-scrollbar { display: none; } 
+
+    .gallery-item {
+        flex: 0 0 320px; 
+        scroll-snap-align: start;
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px; 
+        box-shadow: 0 4px 18px rgba(217,4,41,0.15); 
+        transition: transform 0.3s ease-in-out;
+    }
+    .gallery-item:hover {
+        transform: translateY(-8px); 
+    }
+    .gallery-item img {
+        width: 100%;
+        height: 280px; 
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+    .gallery-item:hover img {
+        transform: scale(1.15) rotate(-3deg); 
+    }
+    .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(90deg, rgba(217,4,41,0.95) 60%, rgba(255,46,99,0.85) 100%);
+        color: white;
+        padding: 12px; 
+        text-align: center;
+        transform: translateY(100%);
+        transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55); 
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+    .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+    }
+    .gallery-nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(217,4,41,0.9); 
+        border: none;
+        color: white;
+        padding: 12px; 
+        cursor: pointer;
+        z-index: 5;
+        border-radius: 50%;
+        width: 45px; 
+        height: 45px; 
+        font-size: 1.5em; 
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .gallery-nav-btn:hover { 
+        background: #ff2e63; 
+        transform: translateY(-50%) scale(1.1);
+    }
+    #prevBtn { left: 5px; } 
+    #nextBtn { right: 5px; } 
+
+
+    /* Gaya Login Modal BARU */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85); /* Lebih gelap */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s;
+    }
+    .modal-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    .login-modal {
+        background: #2a2a2a;
+        padding: 30px 40px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        transform: translateY(-50px);
+        transition: transform 0.3s;
+        position: relative;
+        border: 2px solid #d90429;
+    }
+    .modal-overlay.active .login-modal {
+        transform: translateY(0);
+    }
+    .login-modal h3 {
+        text-align: center;
+        color: #fff;
+        font-size: 1.8em;
+        margin-bottom: 25px;
+        border-bottom: 2px solid #d90429;
+        padding-bottom: 10px;
+    }
+    .login-modal label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 600;
+        color: #ccc;
+    }
+    .login-modal input[type="text"], 
+    .login-modal input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        border: 1px solid #d90429;
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 1em;
+    }
+    .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 2em;
+        color: #d90429;
+        cursor: pointer;
+        line-height: 1;
+        transition: transform 0.2s;
+    }
+    .close-btn:hover {
+        transform: rotate(90deg);
+        color: #ff2e63;
+    }
+    .login-message {
+        text-align: center;
+        color: #ff2e63;
+        margin-top: -10px;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+    .login-modal button {
+        /* Memakai gaya cta-button tapi diubah untuk form */
+        padding: 12px 20px;
+        font-size: 1.1em;
+        margin-top: 15px;
+        border-radius: 10px;
+        width: 100%;
+        box-shadow: 0 4px 12px rgba(217,4,41,0.3);
+    }
+
+    /* Testimoni Card/Grid (Tidak ada perubahan) */
+    .testimoni-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        gap: 28px; 
+        margin-top: 35px; 
+    }
+    .testimoni-card {
+        background: #222;
+        border-radius: 18px; 
+        box-shadow: 0 4px 18px rgba(217,4,41,0.15); 
+        padding: 28px 22px; 
+        color: #fff;
+        position: relative;
+        border-left: 6px solid #d90429; 
+        min-height: 140px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        animation: fadeInUp 0.8s;
+        transition: transform 0.3s ease-in-out;
+    }
+    .testimoni-card:hover {
+        transform: translateY(-5px); 
+        box-shadow: 0 6px 22px rgba(217,4,41,0.25);
+    }
+    .testimoni-card .nama {
+        font-weight: bold;
+        color: #d90429;
+        margin-top: 18px; 
+        text-align: right;
+        font-size: 1.05em;
+    }
+    .testimoni-form {
+        background: #222;
+        border-radius: 18px; 
+        box-shadow: 0 4px 18px rgba(217,4,41,0.15);
+        padding: 30px 25px; 
+        margin-top: 40px; 
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        gap: 15px; 
+        max-width: 450px; 
+        margin-left: auto; 
+        margin-right: auto; 
+        transition: box-shadow 0.3s;
+    }
+    .testimoni-form:hover {
+        box-shadow: 0 6px 22px rgba(217,4,41,0.25);
+    }
+    .testimoni-form input, .testimoni-form textarea {
+        border-radius: 10px; 
+        border: 1px solid #d90429;
+        padding: 10px 15px; 
+        font-family: inherit;
+        font-size: 1.05em; 
+        background: #1a1a1a;
+        color: #fff;
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .testimoni-form input:focus, .testimoni-form textarea:focus {
+        border-color: #ff2e63; 
+        box-shadow: 0 0 8px rgba(255,46,99,0.5);
+        outline: none;
+    }
+    .testimoni-form button {
+        background: linear-gradient(90deg, #d90429 60%, #ff2e63 100%);
+        color: #fff;
+        border: none;
+        border-radius: 10px; 
+        padding: 12px 20px; 
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        font-size: 1.1em;
+    }
+    .testimoni-form button:hover {
+        background: linear-gradient(90deg, #ff2e63 60%, #d90429 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255,46,99,0.3);
+    }
+
+    /* FAQ Styling (Tidak ada perubahan) */
+    .faq-item {
+        margin-bottom: 18px; 
+        border-bottom: 1px solid rgba(217,4,41,0.3);
+        padding-bottom: 10px;
+    }
+    .faq-question {
+        background: #333;
+        padding: 18px; 
+        border-radius: 10px; 
+        cursor: pointer;
+        font-weight: 600;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .faq-question:hover { 
+        background: #444; 
+        transform: translateX(3px);
+    }
+    .faq-answer {
+        padding: 0 18px; 
+        background: #2a2a2a;
+        border-radius: 0 0 10px 10px; 
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+        color: #ddd;
+    }
+    .faq-answer.open {
+        max-height: 250px; 
+        padding: 15px 18px; 
+    }
+    .faq-icon {
+        transition: transform 0.3s;
+        font-size: 1.3em; 
+        color: #d90429;
+    }
+    .faq-question.active .faq-icon { 
+        transform: rotate(180deg);
+    }
+
+    /* Why Choose Us Section (Tidak ada perubahan) */
+    .why-choose-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+    }
+    .why-choose-item {
+        background: #222;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 16px rgba(217,4,41,0.1);
+        border: 1px solid rgba(217,4,41,0.2);
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    }
+    .why-choose-item:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 8px 25px rgba(217,4,41,0.3);
+    }
+    .why-choose-item .icon {
+        font-size: 3.5em; 
+        color: #d90429;
+        margin-bottom: 15px;
+        animation: pulse 2s infinite; 
+    }
+    .why-choose-item h3 {
+        color: #fff;
+        font-size: 1.6em;
+        margin-top: 0;
+    }
+    .why-choose-item p {
+        font-size: 1em;
+        color: #ccc;
+    }
+
+    /* Google Maps Embed (Tidak ada perubahan) */
+    .map-container {
+        margin-top: 30px;
+        border-radius: 15px;
+        overflow: hidden; 
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        border: 1px solid #d90429;
+    }
+    .map-container iframe {
+        width: 100%;
+        height: 400px; 
+        border: 0;
+    }
+
+    /* Footer (Tidak ada perubahan) */
+    footer {
+        background: rgba(0,0,0,0.95);
+        color: #d90429;
+        text-align: center;
+        padding: 30px 0 10px 0;
+        margin-top: 60px; 
+        border-top: 2px solid #d90429;
+    }
+    .contact-info p { margin: 8px 0; } 
+
+    /* Animasi (Tidak ada perubahan) */
+    @keyframes fadeInUp {
+        0% { opacity: 0; transform: translateY(50px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* MEDIA QUERY untuk Responsivitas (HP) */
+    @media (max-width: 768px) {
+        header h1 { font-size: 2.5em; }
+        header p { font-size: 1.1em; }
+        
+        nav { 
+            padding: 10px 0; 
+            flex-wrap: wrap; /* Agar login button bisa turun */
+        }
+        nav a { 
+            margin: 5px; 
+            font-size: 0.8em; 
+            padding: 5px 8px; 
+        }
+        #loginBtn {
+            margin: 5px 0 0 0; /* Ubah margin untuk mobile */
+            padding: 8px 12px;
+            width: 90%; /* Buat tombol login lebih lebar */
+        }
+        
+        section {
+            padding: 30px 15px; 
+            margin: 20px auto;
+        }
+
+        .owner-profile {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+        .owner-profile img {
+            width: 140px; 
+            height: 140px;
+            margin-bottom: 10px;
+        }
+        .owner-details h3 { font-size: 1.5em; }
+        .owner-details p { font-size: 0.9em; }
+
+        .gallery-container {
+            padding: 0;
+        }
+        .gallery-nav-btn {
+            display: none;
+        }
+        .gallery-item {
+            flex: 0 0 95%; 
+        }
+
+        .testimoni-card {
+            min-height: auto; 
+            padding: 20px 15px;
+        }
+        .testimoni-form {
+            padding: 20px 15px;
+        }
+
+        .why-choose-grid {
+            grid-template-columns: 1fr; 
+        }
+        .why-choose-item {
+            padding: 20px;
+        }
+        .why-choose-item .icon {
+            font-size: 3em;
+        }
+
+        .map-container iframe {
+            height: 300px; 
+        }
+    }
+    </style>
+</head>
+<body>
+    <header class="fade-in">
+        <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Foto Tailor" style="width:120px;height:120px;border-radius:50%;box-shadow:0 2px 8px rgba(217,4,41,0.3);margin-bottom:20px;">
+        <h1>Away Tailor</h1>
+        <p>Menjahit dengan kualitas premium, desain personal, dan kepercayaan</p>
+        <a href="#kontak" class="cta-button">Pesan Jahitan Anda Sekarang</a>
+    </header>
+
+    <nav>
+        <a href="#tentang">Tentang</a>
+        <a href="#owner">Owner</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#mengapa-kami">Mengapa Kami</a> 
+        <a href="#galeri">Karya</a>
+        <a href="#testimoni">Testimoni</a>
+        <a href="#faq">FAQ</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#" id="loginBtn" class="cta-button">
+            <span id="loginStatus">Login Klien</span>
+        </a>
+    </nav>
+
+    <section id="tentang">
+        <h2 class="fade-in">Tentang Kami - Dedikasi Sejak 2015</h2>
+        <p class="fade-in">Away Tailor adalah butik jahit profesional yang telah berdiri kokoh selama lebih dari 10 tahun. Kami menggabungkan <b>teknik jahit tradisional</b> dengan <b>desain fashion kontemporer</b> untuk menghasilkan pakaian yang tidak hanya pas di badan, tapi juga mencerminkan gaya personal Anda. Komitmen kami adalah kualitas kain terbaik dan detail jahitan yang presisi.</p>
+    </section>
+
+    <section id="owner">
+        <h2 class="fade-in">Profil Owner - Sentuhan Pribadi</h2>
+        <div class="owner-profile">
+            <img src="Pakaryo.jpg" alt="Foto Owner Away Tailor">
+            <div class="owner-details">
+                <h3>Aryo Hariyanto</h3>
+                <p><strong>Master Tailor & Founder</strong></p>
+                <p>Dengan pengalaman lebih dari 20 tahun di dunia <i>bespoke tailoring</i>, Bapak Aryo Hariyanto memimpin Away Tailor dengan filosofi <b>"Kualitas adalah Signature"</b>. Beliau secara pribadi mengawasi pemilihan bahan dan desain-desain utama untuk memastikan setiap jahitan mencerminkan standar keunggulan yang tak tertandingi.</p>
+                <p>Lisensi: <b>Master Penjahit Asia Tenggara (MPAS)</b></p>
+                <p>Kontak Owner Langsung (Khusus Klien Premium): <a href="tel:081122334455" style="color:#d90429; text-decoration: none;">0811-2233-4455</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="layanan">
+        <h2>Layanan Premium Kami</h2>
+        <ul>
+            <li><b>Bespoke Tailoring:</b> Jahitan <i>full custom</i> untuk Jas, Tuxedo, dan Gaun Pesta (Fitur Unik).</li>
+            <li>Jahit Pakaian Pria & Wanita (Kemeja, Celana, Rok, Blouse).</li>
+            <li>Jahit Seragam Korporat Eksklusif & Seragam Sekolah.</li>
+            <li>Alterasi Cepat & Perbaikan Pakaian Premium.</li>
+            <li>Konsultasi Bahan & Desain Fashion Gratis.</li>
+        </ul>
+        <a href="#kontak" class="cta-button">Lihat Daftar Harga</a>
+    </section>
+
+    <section id="mengapa-kami">
+        <h2 class="fade-in">Mengapa Memilih Away Tailor?</h2>
+        <p>Kami berkomitmen untuk memberikan pengalaman menjahit yang tak terlupakan dengan nilai-nilai inti berikut:</p>
+        <div class="why-choose-grid">
+            <div class="why-choose-item">
+                <div class="icon">✂️</div>
+                <h3>Keahlian Klasik & Modern</h3>
+                <p>Menggabungkan teknik jahit turun-temurun dengan tren fashion terbaru untuk hasil yang sempurna.</p>
+            </div>
+            <div class="why-choose-item">
+                <div class="icon">✨</div>
+                <h3>Kualitas Bahan Premium</h3>
+                <p>Hanya menggunakan kain pilihan terbaik dari pemasok terpercaya, memastikan kenyamanan dan daya tahan.</p>
+            </div>
+            <div class="why-choose-item">
+                <div class="icon">💖</div>
+                <h3>Layanan Personal Eksklusif</h3>
+                <p>Setiap klien mendapatkan konsultasi personal dan *fitting* yang cermat untuk hasil yang benar-benar cocok.</p>
+            </div>
+            <div class="why-choose-item">
+                <div class="icon">⏱️</div>
+                <h3>Penyelesaian Tepat Waktu</h3>
+                <p>Kami menghargai waktu Anda. Setiap pesanan diselesaikan dengan presisi dan dikirim sesuai jadwal.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri">
+        <h2 class="fade-in">Karya Kami (Galeri Geser Infinity)</h2>
+        <div class="gallery-container">
+            <div class="gallery" id="gallerySlider">
+                <div class="gallery-item" data-index="1">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Setelan Jas Pria">
+                    <div class="gallery-caption">Setelan Bisnis Modern</div>
+                </div>
+                <div class="gallery-item" data-index="2">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Gaun Malam Elegan">
+                    <div class="gallery-caption">Gaun Pesta Mewah</div>
+                </div>
+                <div class="gallery-item" data-index="3">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Seragam Kantor Kualitas">
+                    <div class="gallery-caption">Seragam Korporat</div>
+                </div>
+                <div class="gallery-item" data-index="4">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Dress Casual Wanita">
+                    <div class="gallery-caption">Dress Casual Wanita</div>
+                </div>
+                <div class="gallery-item" data-index="5">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Kemeja Pria Custom">
+                    <div class="gallery-caption">Kemeja Pria Custom</div>
+                </div>
+                <div class="gallery-item" data-index="6">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Jaket Fashion Premium">
+                    <div class="gallery-caption">Jaket Fashion Premium</div>
+                </div>
+
+                <div class="gallery-item cloned" data-index="7">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Setelan Jas Pria">
+                    <div class="gallery-caption">Setelan Bisnis Modern</div>
+                </div>
+                <div class="gallery-item cloned" data-index="8">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Gaun Malam Elegan">
+                    <div class="gallery-caption">Gaun Pesta Mewah</div>
+                </div>
+                <div class="gallery-item cloned" data-index="9">
+                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80" alt="Seragam Kantor Kualitas">
+                    <div class="gallery-caption">Seragam Korporat</div>
+                </div>
+                <div class="gallery-item cloned" data-index="10">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Dress Casual Wanita">
+                    <div class="gallery-caption">Dress Casual Wanita</div>
+                </div>
+                <div class="gallery-item cloned" data-index="11">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Kemeja Pria Custom">
+                    <div class="gallery-caption">Kemeja Pria Custom</div>
+                </div>
+                <div class="gallery-item cloned" data-index="12">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80" alt="Jaket Fashion Premium">
+                    <div class="gallery-caption">Jaket Fashion Premium</div>
+                </div>
+            </div>
+            <button class="gallery-nav-btn" id="prevBtn">&lt;</button>
+            <button class="gallery-nav-btn" id="nextBtn">&gt;</button>
+        </div>
+    </section>
+
+    <section id="testimoni">
+        <h2 class="fade-in">Apa Kata Klien Kami</h2>
+        <div class="testimoni-grid" id="testimoniList">
+            <div class="testimoni-card">
+                <div>"Jahitan di Away Tailor benar-benar sempurna. Pas di badan dan bahannya premium. Pelayanan konsultasinya sangat membantu!"</div>
+                <div class="nama">Bpk. Adrian, Pengusaha</div>
+            </div>
+            <div class="testimoni-card">
+                <div>"Saya pesan seragam kantor di Away Tailor, hasilnya rapi dan cepat. Ownernya ramah dan sangat profesional."</div>
+                <div class="nama">Ibu Rina, HRD</div>
+            </div>
+            <div class="testimoni-card">
+                <div>"Gaun pesta custom yang saya pesan benar-benar sesuai keinginan. Proses konsultasi sangat detail dan sabar."</div>
+                <div class="nama">Sinta, Mahasiswi</div>
+            </div>
+            <div class="testimoni-card">
+                <div>"Alterasi jas saya sangat presisi, hasilnya seperti baru lagi. Sangat direkomendasikan!"</div>
+                <div class="nama">Pak Dedi, Karyawan Swasta</div>
+            </div>
+        </div>
+        <form class="testimoni-form" id="formTestimoni">
+            <h3 style="color:#d90429;">Kirim Testimoni Anda</h3>
+            <input type="text" id="namaTesti" placeholder="Nama Anda" required>
+            <textarea id="pesanTesti" rows="3" placeholder="Pesan Testimoni" required></textarea>
+            <button type="submit">Kirim Testimoni</button>
+        </form>
+    </section>
+
+    <section id="faq">
+        <h2 class="fade-in">Pertanyaan yang Sering Diajukan (FAQ)</h2>
+        <div class="faq-item">
+            <div class="faq-question">
+                Apakah Away Tailor menerima jahitan *urgent*?
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                Kami bisa mengakomodasi jahitan mendesak (*urgent*), namun akan dikenakan biaya tambahan (*rush fee*), tergantung pada tingkat kerumitan desain. Silakan hubungi kontak premium owner kami untuk konsultasi.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Berapa lama waktu pengerjaan untuk Bespoke Suit?
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                Untuk *Bespoke Suit* dengan pengukuran dan *fitting* yang sempurna, waktu pengerjaan normal adalah **3 hingga 4 minggu**. Kualitas detail dan kenyamanan adalah prioritas utama kami.
+            </div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">
+                Apakah kami harus membawa bahan sendiri?
+                <span class="faq-icon">▼</span>
+            </div>
+            <div class="faq-answer">
+                Tidak harus. Kami menyediakan berbagai pilihan kain premium impor dan lokal. Jika Anda membawa bahan sendiri, biaya jasa jahit akan disesuaikan.
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak">
+        <h2>Hubungi Kami & Buat Janji</h2>
+        <p>Siap membuat pakaian impian Anda? Hubungi kami untuk konsultasi desain dan pengukuran GRATIS.</p>
+        <div class="contact-info">
+            <p>Alamat: <b>Jl. Kp. Pamahan Jl. Benda No.8, RT.003/RW.006, Jatimekar, Kec. Jatiasih, Kota Bks, Jawa Barat 17422</b></p>
+            <p style="margin-top: 25px;">Telepon: <b>0858-1483-8838 (WhatsApp Tersedia)</b></p>
+            <p>Email: <b>info@awaytailor.com</b></p> 
+            <p style="margin-top: 15px;">Jam Operasional: Senin - Sabtu, 09:00 - 18:00 WIB</p>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.7516848037635!2d106.91136151477!3d-6.3013888954756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698c199516664d%3A0xf6d6c4d7e974913c!2sJatiasih%20Tailor!5e0!3m2!1sen!2sid!4v1633512345678!5m2!1sen!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom:15px;"> 
+            <a href="https://www.instagram.com/awaytailor/" target="_blank" style="margin:0 12px;">
+                <img src="https://cdn-icons-png.flaticon.com/32/2111/2111463.png" alt="Instagram" style="vertical-align:middle; width:36px; height:36px;">
+            </a> 
+            <a href="https://wa.me/6285814838838" target="_blank" style="margin:0 12px;">
+                <img src="https://cdn-icons-png.flaticon.com/32/733/733585.png" alt="WhatsApp" style="vertical-align:middle; width:36px; height:36px;">
+            </a>
+        </div>
+        <p>© 2025 Away Tailor. All rights reserved. | Desain oleh <span style="color:#fff;">Bintang Afif Hikam</span></p>
+    </footer>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="login-modal">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <h3>Area Klien Premium</h3>
+            <form id="loginForm">
+                <label for="username">Username/Email</label>
+                <input type="text" id="username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+                
+                <p class="login-message" id="loginMessage"></p>
+                
+                <button type="submit" class="cta-button">Masuk</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        // *** 1. LOGIN SIMULASI ***
+        const loginModal = document.getElementById('loginModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const closeModal = document.getElementById('closeModal');
+        const loginForm = document.getElementById('loginForm');
+        const loginMessage = document.getElementById('loginMessage');
+        const loginStatus = document.getElementById('loginStatus');
+
+        // Data Login Valid (Simulasi)
+        const VALID_USER = "klienpremium";
+        const VALID_PASS = "tailoraway";
+
+        // Tampilkan Modal / Lakukan Logout
+        loginBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (loginStatus.textContent === 'Logout') {
+                // Logout Logic
+                loginStatus.textContent = 'Login Klien';
+                alert('Anda berhasil Logout.');
+            } else {
+                loginModal.classList.add('active');
+            }
+        });
+
+        // Sembunyikan Modal (tombol X)
+        closeModal.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+            loginMessage.textContent = ''; 
+        });
+
+        // Sembunyikan Modal (klik di luar area modal)
+        loginModal.addEventListener('click', (e) => {
+            if (e.target.id === 'loginModal') {
+                loginModal.classList.remove('active');
+                loginMessage.textContent = '';
+            }
+        });
+
+        // Proses Login (Simulasi Validation)
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === VALID_USER && password === VALID_PASS) {
+                loginMessage.textContent = '';
+                loginModal.classList.remove('active');
+                loginStatus.textContent = 'Logout';
+                alert('Login Berhasil! Selamat datang, Klien Premium.');
+                loginForm.reset();
+            } else {
+                loginMessage.textContent = 'Username atau Password salah. Coba: klienpremium / tailoraway';
+            }
+        });
+
+
+        // *** 2. GALERI GESER INFINITY ***
+        const gallery = document.getElementById('gallerySlider');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        // Item dan Gap
+        const allItems = document.querySelectorAll('#gallerySlider .gallery-item');
+        const originalItemsCount = 6; // Jumlah item asli
+        let itemWidth = 0; 
+        
+        // Fungsi untuk menggeser galeri
+        function scrollGallery(direction) {
+            // Kita gunakan scrollBy dengan smooth behavior
+            gallery.scrollBy({
+                left: direction * itemWidth,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Cek lebar item sekali saat load
+        window.addEventListener('load', () => {
+            if (allItems.length > 0) {
+                // Ambil lebar item pertama + gap (25px dari CSS)
+                // OffsetWidth sudah termasuk padding/border, jadi kita hanya perlu tambah gap
+                itemWidth = allItems[0].offsetWidth + 25; 
+            }
+        });
+
+        // Event listener untuk tombol
+        prevBtn.addEventListener('click', () => {
+            scrollGallery(-1);
+        });
+        nextBtn.addEventListener('click', () => {
+            scrollGallery(1);
+        });
+        
+        // Cek posisi scroll dan lakukan "teleportasi" (Inti Infinity Loop)
+        gallery.addEventListener('scroll', () => {
+            const targetScrollPosition = itemWidth * originalItemsCount;
+            const scrollLeft = gallery.scrollLeft;
+            const maxScroll = gallery.scrollWidth - gallery.clientWidth;
+
+            // Jika geser ke KANAN dan melewati item asli terakhir
+            if (scrollLeft >= targetScrollPosition) {
+                gallery.style.scrollBehavior = 'auto';
+                // Scroll ke posisi item asli pertama (bukan 0, tapi item pertama setelah kloning)
+                gallery.scrollLeft = 1;
+                setTimeout(() => {
+                    gallery.style.scrollBehavior = 'smooth';
+                }, 50);
+            }
+            // Jika geser ke KIRI dan melewati item asli pertama (posisi 0)
+            else if (scrollLeft <= 0) {
+                gallery.style.scrollBehavior = 'auto';
+                // Scroll ke posisi item kloning terakhir
+                gallery.scrollLeft = targetScrollPosition - itemWidth;
+                setTimeout(() => {
+                    gallery.style.scrollBehavior = 'smooth';
+                }, 50);
+            }
+        });
+
+
+        // *** 3. Smooth scroll for navigation links ***
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // *** 4. Testimoni Real-time (Dari Kode Sebelumnya) ***
+        const formTestimoni = document.getElementById('formTestimoni');
+        const testimoniList = document.getElementById('testimoniList');
+
+        formTestimoni.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+            const nama = document.getElementById('namaTesti').value;
+            const pesan = document.getElementById('pesanTesti').value;
+            
+            if (nama && pesan) {
+                const newCard = document.createElement('div');
+                newCard.classList.add('testimoni-card', 'fade-in'); 
+                newCard.innerHTML = `
+                    <div>"${pesan}"</div>
+                    <div class="nama">${nama}, Klien Baru</div>
+                `;
+                testimoniList.prepend(newCard);
+                formTestimoni.reset();
+                alert('Terima kasih! Testimoni Anda telah berhasil ditambahkan.');
+            }
+        });
+
+        // *** 5. FAQ Accordion (Dari Kode Sebelumnya) ***
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling; 
+
+                document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                    if (openAnswer !== answer) {
+                        openAnswer.classList.remove('open');
+                        openAnswer.style.maxHeight = 0;
+                        openAnswer.previousElementSibling.classList.remove('active');
+                    }
+                });
+
+                if (answer.classList.contains('open')) {
+                    answer.classList.remove('open');
+                    answer.style.maxHeight = 0;
+                    question.classList.remove('active');
+                } else {
+                    answer.classList.add('open');
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    question.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
